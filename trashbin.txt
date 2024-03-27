@@ -1,0 +1,35 @@
+title: 'Flutter Demo Home Page'
+ 
+home
+ 
+@HiveField(0)
+  late String username;
+ 
+, required this.email, required this.password
+ 
+@HiveField(1)
+  late String email;
+
+  @HiveField(2)
+  late String password;
+ 
+import 'package:hive/hive.dart';
+
+part 'my_model.g.dart'; // Le fichier my_model.g.dart sera généré par Hive
+
+@HiveType(typeId: 1)
+class MyModel extends HiveObject {
+  @HiveField(0)
+  late String name;
+
+  @HiveField(1)
+  late int age;
+}
+ 
+void main() async {
+await Hive.initFlutter();
+runApp (MyApp());
+}
+ 
+import 'package:flutter/material.dart';
+ 
