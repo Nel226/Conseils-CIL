@@ -1,3 +1,258 @@
+if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => QuizPage()),
+            );
+          }
+ 
+import 'quiz.dart';
+ 
+const
+ 
+assets/mockup.png
+ 
+_tag('Category', () {}), _tag('Product', () {})
+ 
+Description
+ 
+Description
+ 
+                        tags: [_tag('Category', () {}), _tag('Product', () {})],
+
+ 
+const
+ 
+Card(
+                  
+                ),
+ 
+const
+ 
+olors.green
+ 
+lightbulb
+ 
+            selectedIcon: Icon(Icons.home),
+
+ 
+const
+ 
+notifications_sharp
+ 
+                Icons.done_sharp,
+
+ 
+const
+ 
+ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 3,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.message),
+                            Text('Messages'),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 3,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.settings),
+                            Text('Settings'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+ 
+Row(),
+ 
+Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        _buildCard(stories[1]),
+                        _buildCard(stories[2]),
+                      ],
+                    ),
+                  ),,
+ 
+ Container(
+                        width: 150,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 3,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.home),
+                            Text('Home'),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 3,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.notifications),
+                            Text('Notifications'),
+                          ],
+                        ),
+                      ),
+                      
+                    
+ 
+Container(
+                        width: 150,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 3,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.message),
+                            Text('Messages'),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 3,
+                              offset:
+                                  Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.settings),
+                            Text('Settings'),
+                          ],
+                        ),
+                      ),
+ 
+scrollDirection: Axis.horizontal,
+ 
+
+                            right:
+ 
+],
+                        ),
+                      )
+ 
+TextSpan(
+                          children: const <TextSpan>[
+                            TextSpan(
+                              text: 'A la une',
+                            ),
+ 
+style: DefaultTextStyle.of(context).style,
+ 
+style: TextStyle(fontWeight: FontWeight.bold)
+ 
+style: TextStyle(fontWeight: FontWeight.bold)),
+ 
+child: Image.network(
+                            "https://burkina24.com/wp-content/uploads/2022/08/2C5330B8-BBDB-4A1F-BC3A-C6554877AA3D.jpeg",
+                            fit: BoxFit.cover,
+                          ),
+ 
+text: 'Hello ',
+ 
+ TextSpan(text: ' world!'),
+ 
+RGB
+ 
+Card(
+                  child: ListTile(
+                    leading: Icon(Icons.notifications_sharp),
+                    title: Text('Notification 2'),
+                    subtitle: Text('This is a notification'),
+                  ),
+                ),
+ 
+import 'package:flutter/material.dart';
+ 
 title: 'Flutter Demo Home Page'
  
 home

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:story_view/story_view.dart';
-import 'quiz.dart';
-import 'package:image_card/image_card.dart';
 
-/// Flutter code sample for [NavigationBar].
-
-void main() => runApp(const NavigationBarApp());
+void main() {
+  runApp(const NavigationBarApp());
+}
 
 class NavigationBarApp extends StatelessWidget {
-  const NavigationBarApp({super.key});
+  const NavigationBarApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class NavigationBarApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -40,7 +38,7 @@ class _HomePageState extends State<HomePage> {
       StoryItem.pageImage(
         url:
             'https://burkina24.com/wp-content/uploads/2022/08/2C5330B8-BBDB-4A1F-BC3A-C6554877AA3D.jpeg',
-        caption: Text("Beautiful scenery"),
+        caption: const Text("Beautiful scenery"),
         controller: controller,
       ),
     ];
@@ -100,7 +98,6 @@ class _HomePageState extends State<HomePage> {
       body: IndexedStack(
         index: currentPageIndex,
         children: [
-          // Home page
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -121,8 +118,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: 50.0,
                         height: 50.0,
-                        margin: const EdgeInsets.all(
-                            26.0), // Marge entre le cercle et le texte
+                        margin: const EdgeInsets.all(26.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.blue, width: 2.0),
@@ -139,9 +135,9 @@ class _HomePageState extends State<HomePage> {
                         text: const TextSpan(
                           text: 'A la une',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold, // Met le texte en gras
-                            fontSize: 16.0, // Taille du texte
-                            color: Colors.black, // Couleur du texte
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -163,7 +159,6 @@ class _HomePageState extends State<HomePage> {
                 ),
             ],
           ),
-          // Notifications page
           const Padding(
             padding: EdgeInsets.all(28.0),
             child: Column(
@@ -173,11 +168,10 @@ class _HomePageState extends State<HomePage> {
                   child: Card(
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundColor:
-                            Colors.blue, // Couleur de fond du cercle
+                        backgroundColor: Colors.blue,
                         child: Icon(
                           Icons.notifications_sharp,
-                          color: Colors.white, // Couleur de l'icône
+                          color: Colors.white,
                         ),
                       ),
                       title: Text('Notification 1'),
@@ -188,7 +182,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          // Messages page
           ListView.builder(
             reverse: true,
             itemCount: 2,
