@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:story_view/story_view.dart';
+import 'package:image_card/image_card.dart';
 
 void main() {
   runApp(const NavigationBarApp());
@@ -48,11 +49,11 @@ class _HomePageState extends State<HomePage> {
         title: const Text(
           'Conseils CIL',
           style: TextStyle(
-            color: Colors.white, // Couleur du texte en blanc
-            fontWeight: FontWeight.bold, // Texte en gras
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: const Color(0xFF6FA562), // Couleur de fond verte
+        backgroundColor: const Color(0xFF6FA562),
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -160,11 +161,11 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           const Padding(
-            padding: EdgeInsets.all(28.0),
+            padding: const EdgeInsets.all(28.0),
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Card(
                     child: ListTile(
                       leading: CircleAvatar(

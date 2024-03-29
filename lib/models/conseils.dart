@@ -15,4 +15,6 @@ class Conseil extends HiveObject {
 
   @HiveField(3)
   late bool favori;
+
+  Conseil(this.titre, this.description, this.image, this.favori);
 }

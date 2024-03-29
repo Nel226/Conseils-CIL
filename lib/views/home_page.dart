@@ -1,15 +1,13 @@
+import 'package:conseils_cil/dao/dao_conseils.dart';
 import 'package:flutter/material.dart';
 import 'package:story_view/story_view.dart';
 import 'quiz.dart';
 import 'package:image_card/image_card.dart';
-
-/// Flutter code sample for [NavigationBar].
-
-void main() => runApp(const NavigationBarApp());
+import 'package:conseils_cil/models/conseils.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class NavigationBarApp extends StatelessWidget {
   const NavigationBarApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,6 +54,16 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: const Color(0xFF6FA562), // Couleur de fond verte
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          login();
+        },
+        backgroundColor: const Color(0xFF6FA562),
+        child: const Icon(
+          Icons.forum_rounded,
+          color: Colors.white,
+        ),
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -101,6 +109,7 @@ class _HomePageState extends State<HomePage> {
         index: currentPageIndex,
         children: [
           // Home page
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -135,15 +144,33 @@ class _HomePageState extends State<HomePage> {
                           radius: 100,
                         ),
                       ),
-                      RichText(
-                        text: const TextSpan(
-                          text: 'A la une',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold, // Met le texte en gras
-                            fontSize: 16.0, // Taille du texte
-                            color: Colors.black, // Couleur du texte
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          RichText(
+                            text: const TextSpan(
+                              text: 'A la une\n',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.0,
+                                color: Colors.black,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text:
+                                      "Suivez l'actualité partagée par la CIL",
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.black,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
+                          // Autres widgets ici
+                        ],
                       ),
                     ],
                   ),
@@ -161,9 +188,308 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                child: Row(
+                  children: [
+                    // Première carte
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / (2.5),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(
+                            color: Colors.grey,
+                            width: 1,
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 /
+                                  9, // Ratio d'aspect de l'image (peut être différent pour chaque image)
+                              child: Image.asset(
+                                'assets/images/bananas.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Titre 1',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text('Sous-titre 1'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Deuxième carte
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / (2.5),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(
+                            color: Colors.grey, // Couleur de la bordure
+                            width: 1, // Largeur de la bordure
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 /
+                                  9, // Ratio d'aspect de l'image (peut être différent pour chaque image)
+                              child: Image.asset(
+                                'assets/images/logo_cil.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Titre 2',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text('Sous-titre 2'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / (2.5),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(
+                            color: Colors.grey, // Couleur de la bordure
+                            width: 1, // Largeur de la bordure
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 /
+                                  9, // Ratio d'aspect de l'image (peut être différent pour chaque image)
+                              child: Image.asset(
+                                'assets/images/logo_cil.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Titre 2',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text('Sous-titre 2'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / (2.5),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(
+                            color: Colors.grey, // Couleur de la bordure
+                            width: 1, // Largeur de la bordure
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 /
+                                  9, // Ratio d'aspect de l'image (peut être différent pour chaque image)
+                              child: Image.asset(
+                                'assets/images/logo_cil.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Titre 2',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text('Sous-titre 2'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Ajoutez les autres cartes de la même manière
+                  ],
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                elevation: 4,
+
+                margin: EdgeInsets.all(10), // Marge autour de la carte
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
+                        ),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'La protection de vos données',
+                            style: TextStyle(
+                              color:
+                                  Colors.black, // Couleur du texte de l'en-tête
+                              fontWeight: FontWeight.bold, // Texte en gras
+                            ),
+                          ),
+                          Divider(), // Diviseur entre l'en-tête et le corps
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                              height:
+                                  5), // Espacement entre le titre et le contenu
+
+                          SingleChildScrollView(
+                            child: Card(
+                              margin: EdgeInsets.all(16.0),
+                              elevation: 4.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height - 300.0,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [Colors.blue, Colors.green],
+                                  ),
+                                ),
+                                child: Stack(
+                                  children: [
+                                    // Contenu de la carte
+                                    Padding(
+                                      padding: EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Protections sur les réseaux sociaux',
+                                            style: TextStyle(
+                                              fontSize: 24.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            softWrap: true,
+                                          ),
+                                          SizedBox(height: 8.0),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.access_time),
+                                              SizedBox(width: 8.0),
+                                              Expanded(
+                                                child: Text(
+                                                  'Première ligne de texte',
+                                                  softWrap: true,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8.0),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.star),
+                                              SizedBox(width: 8.0),
+                                              Expanded(
+                                                child: Text(
+                                                  'Deuxième ligne de texte',
+                                                  softWrap: true,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8.0),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.favorite),
+                                              SizedBox(width: 8.0),
+                                              Expanded(
+                                                child: Text(
+                                                  'Troisième ligne de texte',
+                                                  softWrap: true,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
+
           // Notifications page
+
           const Padding(
             padding: EdgeInsets.all(28.0),
             child: Column(

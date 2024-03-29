@@ -11,16 +11,14 @@ class ConseilAdapter extends TypeAdapter<Conseil> {
   final int typeId = 1;
 
   @override
+  @override
   Conseil read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Conseil()
-      ..titre = fields[0] as String
-      ..description = fields[1] as String
-      ..image = fields[2] as String
-      ..favori = fields[3] as bool;
+    return Conseil(fields[0] as String, fields[1] as String,
+        fields[2] as String, fields[3] as bool);
   }
 
   @override

@@ -1,11 +1,12 @@
+import 'package:conseils_cil/models/conseils.dart';
 import 'package:flutter/material.dart';
 import 'views/home_page.dart';
 
 // import BD
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() async {
-  await Hive.initFlutter();
   runApp(const MyApp());
 }
 
