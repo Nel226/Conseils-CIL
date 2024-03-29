@@ -8,12 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Quiz(), // Utilisez la classe Quiz ici
+      home: ConseilsPage(), // Utilisez la classe Quiz ici
     );
   }
 }
 
-class Quiz extends StatelessWidget {
+class ConseilsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
